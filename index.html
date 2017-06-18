@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Booze Guide</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bulma/0.4.2/css/bulma.css">
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans+Condensed:700" rel="stylesheet">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <script src="https://code.jquery.com/jquery-3.2.1.min.js"   integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4="   crossorigin="anonymous"></script>
+</head>
+<style>
+    .title {
+      padding-top: 15px;
+    }
+    .box {
+      box-shadow: 0 3px 6px rgba(0,0,0,0.16), 0 3px 6px rgba(0,0,0,0.23);
+    }
+    .box:hover {
+      box-shadow: 0 10px 20px rgba(0,0,0,0.19), 0 6px 6px rgba(0,0,0,0.23);
+    }
+    .square {
+        position: relative;
+    }
+    #poison {
+        position: absolute;
+        color: #263238;
+        top: 35%;
+        left: 50%;
+        font-family: "Open Sans Condensed", sans-serif;
+        font-size: 2.5rem;
+        transform: translateX(-50%);
+    }
+    #type {
+        position: absolute;
+        color: #263238;
+        top: 35%;
+        left: 50%;
+        font-family: "Open Sans Condensed", sans-serif;
+        font-size: 2rem;
+        transform: translateX(-50%);
+    }
+    .box {
+        padding: 0.75rem;
+        padding-bottom: .5rem;
+    }
+    #booRef {
+      /*display: none;*/
+    }
+</style>
+
+<body>
+<section class="hero is-light is-fullheight">
+
+  <!-- Hero content: will be in the middle -->
+  <!-- <div class="hero-body"> -->
+    <div class="container has-text-centered">
+      <h1 class="title" id="pick-poison">
+        Pick Your Poison
+      </h1>
+      <div class="columns">
+          <div class="column is-half-mobile is-offset-4 is-2">
+            <div class="box booRef">
+                <div class="square">
+                    <img src="./boozeSquare.png">
+                    <h2 id="poison">VODKA</h2>
+                </div>
+            </div>
+          </div>
+          <div class="column is-half-mobile is-2">
+            <div class="box refRef">
+                <div class="card-image">
+                    <img class="square" src="./boozeSquare.png">
+                    <h2 id="poison">GIN</h2>
+                </div>
+            </div>
+          </div>
+      </div>
+      <div class="columns">
+          <div class="column is-half-mobile is-offset-4 is-2">
+            <div class="box boxP">
+                <div class="card-image">
+                    <img class="square" src="./boozeSquare.png">
+                    <h2 id="poison">RUM</h2>
+                </div>
+            </div>
+          </div>
+          <div class="column is-half-mobile is-2">
+            <div class="box boxP">
+                <div class="card-image">
+                    <img class="square" src="./boozeSquare.png">
+                    <h2 id="poison">WHISKEY</h2>
+                </div>
+            </div>
+          </div>
+      </div>
+      <div class="columns is-mobile">
+          <div class="column is-half-mobile is-offset-4 is-2">
+            <div class="box boxP">
+                <div class="card-image">
+                    <img class="square" src="./boozeSquare.png">
+                    <h2 id="poison">TEQUILA</h2>
+                </div>
+            </div>
+          </div>
+          <div class="column is-half-mobile is-2">
+            <div class="box boxP">
+                <div class="card-image">
+                    <img class="square" src="./boozeSquare.png">
+                    <h2 id="poison">EXOTIC</h2>
+                </div>
+            </div>
+          </div>
+      </div>
+    </div>
+  <!-- </div> -->
+
+</section>
+<script>
+  $(document).ready(function() {
+    $('.box').click(function() {
+      var poison = $(this).text();
+      // alert(poison);
+      $('.box').fadeOut('slow', function() {
+        $('.booRef').html("<div class='card-image'><img class='square' src='./boozeSquare.png'><h2 id='type'>BOOZY</h2></div>");
+        $('.refRef').html("<div class='card-image'><img class='square' src='./boozeSquare.png'><h2 id='type'>REFRESHING</h2></div>");
+      });
+      $('.booRef').fadeIn('slow');
+      $('.refRef').fadeIn('slow');
+    });
+  });
+  // function button() {
+  //   var x = document.getElementById('pick-poison');
+  //   var poison = x.getElementById('poison');
+  //   if (x.style.display === 'none') {
+  //       x.style.display = 'block';
+  //       console.log(poison.innerHTML());
+  //   } else {
+  //       x.style.display = 'none';
+  //   }
+  // }
+</script>
+</body>
+
+</html>
