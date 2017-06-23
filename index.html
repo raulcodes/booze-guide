@@ -16,7 +16,7 @@
     }
     .box {
       position: relative;
-      margin-top: 20px;
+      margin-top: 15px;
       margin-left: auto;
       margin-right: auto;
       box-shadow: 0 3px 6px rgba(0,0,0,0.16), 0 3px 6px rgba(0,0,0,0.23);
@@ -24,42 +24,69 @@
       height: 160px;
       padding: 0.75rem;
       border-radius: 10px;
+      /*display: none;*/
     }
     .box:hover {
       box-shadow: 0 10px 20px rgba(0,0,0,0.19), 0 6px 6px rgba(0,0,0,0.23);
     }
-    .boxl {
-      /*margin-left: 5px;*/
-    }
-    .boxr {
-      /*margin-right: 10px;*/
-    }
     .square {
-        position: relative;
-        width: 145px;
-        height: 145px;
+      position: relative;
+      width: 145px;
+      height: 145px;
+    }
+    .classif {
+      width: 100%;
+      height: 50px;
+      /*border-width: 1px;
+      border-color: black;*/
+      border-radius: 5px;
+      /*border-style: solid;*/
+      font-family: "Open Sans Condensed", sans-serif;
+      box-shadow: 0 3px 6px rgba(0,0,0,0.16), 0 3px 6px rgba(0,0,0,0.23);
+      margin-top: 10px;
+    }
+    .cl {
+      display: none;
+    }
+    .classif:hover {
+      box-shadow: 0 10px 20px rgba(0,0,0,0.19), 0 6px 6px rgba(0,0,0,0.23);
+    }
+    .classifTitle {
+      text-align: center;
+      line-height: 48px;
+      font-size: 2.5rem;
+    }
+    .booRef {
+      display: none;
+    }
+    .refRef {
+      display: none;
     }
     #poison {
-        position: absolute;
-        width: 100%;
-        height: 100%;
-        /*left: 50%;*/
-        margin: auto;
-        top: 0; left: 0; right: 0; bottom: 0;
-        line-height: 160px;
-        color: #263238;
-        font-family: "Open Sans Condensed", sans-serif;
-        font-weight: 700;
-        font-size: 3.5rem;
-        text-align: center;
+      position: absolute;
+      width: 100%;
+      height: 100%;
+      margin: auto;
+      top: 0; left: 0; right: 0; bottom: 0;
+      line-height: 160px;
+      color: #263238;
+      font-family: "Open Sans Condensed", sans-serif;
+      font-weight: 700;
+      font-size: 3.5rem;
+      text-align: center;
     }
     #type {
-        position: absolute;
-        color: #263238;
-        font-family: "Open Sans Condensed", sans-serif;
-        font-weight: 700;
-        font-size: 2rem;
-        text-align: center;
+      position: absolute;
+      width: 100%;
+      height: 100%;
+      margin: auto;
+      top: 0; left: 0; right: 0; bottom: 0;
+      line-height: 160px;
+      color: #263238;
+      font-family: "Open Sans Condensed", sans-serif;
+      font-weight: 700;
+      font-size: 2.5rem;
+      text-align: center;
     }
 
 </style>
@@ -71,60 +98,142 @@
       Pick Your Poison
     </h1>
     <div class="row">
-        <div class="col-md-2 col-md-offset-4 col-xs-6 " >
-          <div class="box boxr booRef">
-            <img class="square" src="./boozeSquare.png">
-            <h2 id="poison">VODKA</h2>
-          </div>
+      <div class="col-md-2 col-md-offset-4 col-xs-6 " >
+        <div class="box p">
+          <img class="square" src="./boozeSquare.png">
+          <h2 id="poison">VODKA</h2>
         </div>
-        <div class="col-md-2 col-xs-6">
-          <div class="box boxl refRef">
-            <img class="square" src="./boozeSquare.png">
-            <h2 id="poison">GIN</h2>
-          </div>
+      </div>
+      <div class="col-md-2 col-xs-6">
+        <div class="box p">
+          <img class="square" src="./boozeSquare.png">
+          <h2 id="poison">GIN</h2>
         </div>
+      </div>
     </div>
     <div class="row">
-        <div class="col-md-2 col-md-offset-4 col-xs-6">
-          <div class="box boxr boxP">
-            <img class="square" src="./boozeSquare.png">
-            <h2 id="poison">RUM</h2>
-          </div>
+      <div class="col-md-2 col-md-offset-4 col-xs-6">
+        <div class="box p boxP">
+          <img class="square" src="./boozeSquare.png">
+          <h2 id="poison">RUM</h2>
         </div>
-        <div class="col-md-2 col-xs-6">
-          <div class="box boxl boxP">
-            <img class="square" src="./boozeSquare.png">
-            <h2 id="poison">WHISKEY</h2>
-          </div>
+      </div>
+      <div class="col-md-2 col-xs-6">
+        <div class="box p boxP">
+          <img class="square" src="./boozeSquare.png">
+          <h2 id="poison">WHISKEY</h2>
         </div>
+      </div>
     </div>
     <div class="row">
-        <div class="col-md-2 col-md-offset-4 col-xs-6">
-          <div class="box boxr boxP">
-            <img class="square" src="./boozeSquare.png">
-            <h2 id="poison">TEQUILA</h2>
-          </div>
+      <div class="col-md-2 col-md-offset-4 col-xs-6">
+        <div class="box p boxP">
+          <img class="square" src="./boozeSquare.png">
+          <h2 id="poison">TEQUILA</h2>
         </div>
-        <div class="col-md-2 col-xs-6">
-          <div class="box boxl boxP">
-            <img class="square" src="./boozeSquare.png">
-            <h2 id="poison">EXOTIC</h2>
-          </div>
+      </div>
+      <div class="col-md-2 col-xs-6">
+        <div class="box p boxP">
+          <img class="square" src="./boozeSquare.png">
+          <h2 id="poison">EXOTIC</h2>
         </div>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-md-2 col-md-offset-4 col-xs-6">
+        <div class="box b booRef">
+          <img class="square" src="./boozeSquare.png">
+          <h2 id="type">BOOZY</h2>
+        </div>
+      </div>
+      <div class="col-md-2 col-xs-6">
+        <div class="box b refRef">
+          <img class="square" src="./boozeSquare.png">
+          <h2 id="type">REFRESHING</h2>
+        </div>
+      </div>
+    </div>
+    <div class="row cl">
     </div>
   </div>
 </section>
 <script>
   $(document).ready(function() {
-    $('.box').click(function() {
-      var poison = $(this).text();
-      // alert(poison);
-      $('.box').fadeOut('slow', function() {
-        $('.booRef').html("<img class='square' src='./boozeSquare.png'><h2 id='type'>BOOZY</h2>");
-        $('.refRef').html("<img class='square' src='./boozeSquare.png'><h2 id='type'>REFRESHING</h2>");
+
+    var lookup = {
+      "GIN": {
+        "BOOZY": [
+          "Sour", "Martini", "Complex"
+        ],
+        "REFRESHING": [
+          "Simple", "Sour"
+        ]
+      },
+      "VODKA": {
+        "BOOZY": [
+          "Simple", "Sweet", "Sour"
+        ],
+        "REFRESHING": [
+          "Sour", "Ginger"
+        ]
+      },
+      "RUM": {
+        "BOOZY": [
+          "Simple", "Sweet", "Sour & Complex"
+        ],
+        "REFRESHING": [
+          "Sour", "Sweet"
+        ]
+      },
+      "WHISKEY": {
+        "BOOZY": [
+          "Simple", "Sweet", "Sour"
+        ],
+        "REFRESHING": [
+          "Sweet", "Simple", "Sour"
+        ]
+      },
+      "TEQUILA": {
+        "BOOZY": [
+          "Coffee", "Smokey"
+        ],
+        "REFRESHING": [
+          "Simple", "Sour"
+        ]
+      },
+      "EXOTIC": {
+        "BOOZY": [
+          "Smokey", "Complex", "Brandy"
+        ],
+        "REFRESHING": [
+          "Light", "Shower", "Champagne"
+        ]
+      }
+    }
+    var poison;
+    var type;
+
+    $('.p').click(function() {
+      poison = $.trim($(this).text());
+
+      $('.p').fadeOut('slow', function() {
+        $('.booRef').fadeIn('slow');
+        $('.refRef').fadeIn('slow');
+        // $('.booRef').addClass('b').html("<img class='square' src='./boozeSquare.png'><h2 id='type'>BOOZY</h2>");
+        // $('.refRef').addClass('b').html("<img class='square' src='./boozeSquare.png'><h2 id='type'>REFRESHING</h2>");
       });
-      $('.booRef').fadeIn('slow');
-      $('.refRef').fadeIn('slow');
+    });
+
+    $('body').on('click', 'div.b', function() {
+      type = $.trim($(this).text());
+      console.log(type);
+      $('.b').fadeOut('slow');
+      $('.cl').fadeIn('slow', function() {
+        for (var i = 0; i < lookup[poison][type].length; i++) {
+          console.log(lookup[poison][type][i]);
+          $('.cl').append("<div class='col-md-4 col-md-offset-4 col-xs-10'><div class='classif'><p class='classifTitle'>" + lookup[poison][type][i] + "</p></div></div>");
+        }
+      });
     });
   });
   // function button() {
