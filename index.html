@@ -162,52 +162,74 @@
 
     var lookup = {
       "GIN": {
-        "BOOZY": [
-          "Sour", "Martini", "Complex"
-        ],
-        "REFRESHING": [
-          "Simple", "Sour"
-        ]
+        "BOOZY": {
+          "Sour": ["Bronx", "Gimlet"],
+          "Martini": ["Improved Gin", "Martinez", "Gin Martini"],
+          "Complex": ["Negroni", "Corpse Reviver 2", "The Last Word", "Aviation"]
+        },
+        "REFRESHING": {
+          "Simple": ["Gin & Tonic"],
+          "Sour": ["Tom Collins", "Bramble"]
+        }
       },
       "VODKA": {
-        "BOOZY": [
-          "Simple", "Sweet", "Sour"
-        ],
-        "REFRESHING": [
-          "Sour", "Ginger"
-        ]
+        "BOOZY": {
+          "Simple": ["Vodka Martini"],
+          "Sweet": ["Black Russian"],
+          "Sour": [
+            "Lemon Drop",
+            "Cosmopolitan",
+            "Kamikaze" ]
+        },
+        "REFRESHING": {
+          "Sour": ["Greyhound"],
+          "Ginger": ["Moscow Mule"]
+        }
       },
       "RUM": {
-        "BOOZY": [
-          "Simple", "Sweet", "Sour & Complex"
-        ],
-        "REFRESHING": [
-          "Sour", "Sweet"
-        ]
+        "BOOZY": {
+          "Simple": ["Rum Old-Fashioned"],
+          "Sweet": ["El Presidente"],
+          "Sour & Complex": ["Between The Sheets", "Beachcomber"]
+        },
+        "REFRESHING": {
+          "Sour": ["Hemingway Daquiri", "Daquiri", "Mojito"],
+          "Sweet": ["Dark & Stormy", "Cuba Libre", "Mai Tai"]
+        }
       },
       "WHISKEY": {
-        "BOOZY": [
-          "Simple", "Sweet", "Sour"
-        ],
-        "REFRESHING": [
-          "Sweet", "Simple", "Sour"
-        ]
+        "BOOZY": {
+          "Simple": ["Old-Fashioned"],
+          "Sweet": ["Manhattan", "Blood & Sand"],
+          "Sour": ["Boulevardier", "Sazerac", "Brooklyn", "Toronto"]
+        },
+        "REFRESHING": {
+          "Sweet": ["Kentucky Mule", "Mint Julep"],
+          "Simple": ["Highball"],
+          "Sour": ["Whiskey Sour", "John Collins"]
+        }
       },
       "TEQUILA": {
-        "BOOZY": [
-          "Coffee", "Smokey"
-        ],
-        "REFRESHING": [
-          "Simple", "Sour"
-        ]
+        "BOOZY": {
+          "Coffee": ["Brave Bull"],
+          "Smokey": ["Oaxaca Old-Fashioned"]
+        },
+        "REFRESHING": {
+          "Simple": ["Tequila & Tonic"],
+          "Sour": ["Margarita", "Paloma"]
+        }
       },
       "EXOTIC": {
-        "BOOZY": [
-          "Smokey", "Complex", "Brandy"
-        ],
-        "REFRESHING": [
-          "Light", "Shower", "Champagne"
-        ]
+        "BOOZY": {
+          "Smokey": ["Rob Roy"],
+          "Complex": ["Seelbach"],
+          "Brandy": ["Sidecar", "Horse's Neck"]
+        },
+        "REFRESHING": {
+          "Light": ["Pimm's Cup", "Venetian Spritz"],
+          "Sour": ["Pisco Sour"],
+          "Champagne": ["French 75", "French 95"]
+        }
       }
     }
     var poison;
@@ -223,6 +245,7 @@
         // $('.refRef').addClass('b').html("<img class='square' src='./boozeSquare.png'><h2 id='type'>REFRESHING</h2>");
       });
     });
+    console.log(lookup["VODKA"]["BOOZY"]["Simple"][0]);
 
     $('body').on('click', 'div.b', function() {
       type = $.trim($(this).text());
