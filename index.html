@@ -43,7 +43,8 @@
       /*border-style: solid;*/
       font-family: "Open Sans Condensed", sans-serif;
       box-shadow: 0 3px 6px rgba(0,0,0,0.16), 0 3px 6px rgba(0,0,0,0.23);
-      margin-top: 10px;
+      margin-top: 15px;
+      display: none;
     }
     .cl {
       display: none;
@@ -61,6 +62,26 @@
     }
     .refRef {
       display: none;
+    }
+    .drinks {
+      display: none;
+    }
+    .drink {
+      width: 100%;
+      height: 200px;
+      border-radius: 5px;
+      font-family: "Open Sans Condensed", sans-serif;
+      box-shadow: 0 3px 6px rgba(0,0,0,0.16), 0 3px 6px rgba(0,0,0,0.23);
+      margin-top: 15px;
+    }
+    #drink_name {
+      padding-left: 20px;
+      padding-top: 20px;
+      font-size: 4rem;
+    }
+    #ingredients {
+      margin-left: 20px;
+      font-size: 2.5rem;
     }
     #poison {
       position: absolute;
@@ -155,6 +176,8 @@
     </div>
     <div class="row cl">
     </div>
+    <div class="row drinks">
+    </div>
   </div>
 </section>
 <script>
@@ -234,6 +257,7 @@
     }
     var poison;
     var type;
+    var ciType;
 
     $('.p').click(function() {
       poison = $.trim($(this).text());
@@ -245,18 +269,42 @@
         // $('.refRef').addClass('b').html("<img class='square' src='./boozeSquare.png'><h2 id='type'>REFRESHING</h2>");
       });
     });
-    console.log(lookup["VODKA"]["BOOZY"]["Simple"][0]);
+    // console.log(lookup["VODKA"]["BOOZY"]["Simple"][0]);
 
     $('body').on('click', 'div.b', function() {
       type = $.trim($(this).text());
       console.log(type);
       $('.b').fadeOut('slow');
       $('.cl').fadeIn('slow', function() {
-        for (var i = 0; i < lookup[poison][type].length; i++) {
-          console.log(lookup[poison][type][i]);
-          $('.cl').append("<div class='col-md-4 col-md-offset-4 col-xs-10'><div class='classif'><p class='classifTitle'>" + lookup[poison][type][i] + "</p></div></div>");
-        }
+        ciType = lookup[poison][type];
+        $.each(ciType, function(key, value) {
+          console.log(key);
+          $('.cl').append("<div class='col-md-4 col-md-offset-4 col-xs-10 col-xs-offset-1'><div class='classif'><p class='classifTitle'>" + key + "</p></div></div>");
+        });
+        $('.classif').fadeIn('slow');
+        // for (var i = 0; i < lookup[poison][type].length; i++) {
+        //   console.log(lookup[poison][type][i]);
+        //   $('.cl').append("<div class='col-md-4 col-md-offset-4 col-xs-10'><div class='classif'><p class='classifTitle'>" + lookup[poison][type][i] + "</p></div></div>");
+        // }
       });
+    });
+
+    $('body').on('click', 'div.classif', function() {
+      var classifVar = $.trim($(this).text());
+      for (var i = 0; i < ciType[classifVar].length; i++) {
+        var value = ciType[classifVar][i];
+        console.log(value);
+        $('.drinks').append("<div class='col-md-4 col-md-offset-4 col-xs-10 col-xs-offset-1'><div class='drink'><h2 id='drink_name'>" + value + "</h2><ul id='ingredients'><li>Rum</li><li>Lime</li><li>Simple Syrup</li></ul></div></div>");
+      }
+      $('.classif').fadeOut('slow', function() {
+        $('.drinks').fadeIn('slow');
+      });
+
+        // $.each(ciType[classifVar], function(key, value) {
+        //   // console.log(value);
+        //   $('.drinks').append("<div class='col-md-4 col-md-offset-4 col-xs-10 col-xs-offset-1'><div class='drink'><h2 id='drink_name'>" + value + "</h2><ul id='ingredients'><li>Rum</li><li>Lime</li><li>Simple Syrup</li></ul></div></div>")
+        // });
+
     });
   });
   // function button() {
