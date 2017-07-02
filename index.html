@@ -68,15 +68,16 @@
     }
     .drink {
       width: 100%;
-      height: 200px;
+      /*height: 200px;*/
       border-radius: 5px;
       font-family: "Open Sans Condensed", sans-serif;
       box-shadow: 0 3px 6px rgba(0,0,0,0.16), 0 3px 6px rgba(0,0,0,0.23);
       margin-top: 15px;
+      overflow: auto;
     }
     #drink_name {
       padding-left: 20px;
-      padding-top: 20px;
+      /*padding-top: 10px;*/
       font-size: 4rem;
     }
     #ingredients {
@@ -224,7 +225,7 @@
         "BOOZY": {
           "Simple": ["Old-Fashioned"],
           "Sweet": ["Manhattan", "Blood & Sand"],
-          "Sour": ["Boulevardier", "Sazerac", "Brooklyn", "Toronto"]
+          "Complex": ["Boulevardier", "Sazerac", "Brooklyn", "Toronto"]
         },
         "REFRESHING": {
           "Sweet": ["Kentucky Mule", "Mint Julep"],
@@ -254,7 +255,66 @@
           "Champagne": ["French 75", "French 95"]
         }
       }
-    }
+    };
+
+    var drinks = {
+      "Gimlet": ["Lime", "Simple Syrup", "Cocktail Glass"],
+      "Bronx": ["Orange", "Sweet Vermouth", "Dry Vermouth", "Cocktail Glass"],
+      "Improved Gin": ["Maraschino", "Simple Syrup", "Angostura", "Cocktail Glass"],
+      "Martinez": ["Sweet Vermouth", "Maraschino", "Angostura", "Cocktail Glass"],
+      "Gin Martini": ["Dry Vermouth", "Cocktail Glass"],
+      "Negroni": ["Sweet Vermouth", "Amaro", "Old-Fashioned Glass"],
+      "Corpse Reviver #2": ["Dry Vermouth", "Curacao", "Lemon", "Absinthe", "Cocktail Glass"],
+      "The Last Word": ["Maraschino", "Chartreuse", "Lime", "Cocktail Glass"],
+      "Aviation": ["Maraschino", "Creme", "Lemon", "Cocktail Glass"],
+      "Gin & Tonic": ["Tonic", "Old-Fashioned Glass"],
+      "Tom Collins": ["Lemon", "Simple Syrup", "Soda", "Collins Glass"],
+      "Bramble": ["Creme", "Lemon", "Simple Syrup", "Old-Fashioned Glass"],
+      "Vodka Martini": ["Dry Vermouth", "Cocktail Glass"],
+      "Black Russian": ["Creme", "Old-Fashioned Glass"],
+      "Lemon Drop": ["Lemon", "Simple Syrup", "Cocktail Glass"],
+      "Cosmopolitan": ["Curacao", "Lime", "Cranberry", "Cocktail Glass"],
+      "Kamikaze": ["Curacao", "Lime", "Cocktail Glass"],
+      "Greyhound": ["Grapefruit", "Cocktail Glass"],
+      "Moscow Mule": ["Lime", "Ginger", "Collins Glass"],
+      "Rum Old-Fashioned": ["Simple Syrup", "Angostura", "Old-Fashioned Glass"],
+      "El Presidente": ["Curacao", "Dry Vermouth", "Grenadine", "Cocktail Glass"],
+      "Between The Sheets": ["Brandy", "Curacao", "Lemon", "Cocktail Glass"],
+      "Beachcomber": ["Curacao", "Maraschino", "Lime", "Cocktail Glass"],
+      "Hemingway Daquiri": ["Maraschino", "Lime", "Grapefruit", "Cocktail Glass"],
+      "Daquiri": ["Lime", "Simple Syrup", "Cocktail Glass"],
+      "Mojito": ["Lime", "Mint Syrup", "Soda", "Collins Glass"],
+      "Dark & Stormy": ["Lime", "Ginger", "Collins Glass"],
+      "Cuba Libre": ["Lime", "Coke", "Collins Glass"],
+      "Mai Tai": ["Curacao", "Lime", "Orgeat", "Collins Glass"],
+      "Old-Fashioned": ["Simple Syrup", "Angostura", "Old-Fashioned Glass"],
+      "Boulevardier": ["Sweet Vermouth", "Amaro", "Old-Fashioned Glass"],
+      "Sazerac": ["Simple Syrup", "Peychauds", "Absinthe", "Old-Fashioned Glass"],
+      "Brooklyn": ["Dry Vermouth", "Maraschino", "Angostura", "Cocktail Glass"],
+      "Toronto": ["Amaro", "Simple Syrup", "Angostura", "Cocktail Glass"],
+      "Manhattan": ["Sweet Vermouth", "Angostura", "Old-Fashioned Glass"],
+      "Blood & Sand": ["Sweet Vermouth", "Maraschino", "Orange", "Cocktail Glass"],
+      "Kentucky Mule": ["Lime", "Ginger", "Collins Glass"],
+      "Mint Julep": ["Mint Syrup", "Old-Fashioned Glass"],
+      "Highball": ["Soda", "Collins Glass"],
+      "Whiskey Sour": ["Lemon", "Simple Syrup", "Egg", "Old-Fashioned Glass"],
+      "John Collins": ["Lemon", "Simple Syrup", "Soda", "Collins Glass"],
+      "Brave Bull": ["Creme", "Old-Fashioned Glass"],
+      "Oaxaca Old-Fashioned": ["Agave", "Angostura", "Old-Fashioned Glass"],
+      "Tequila & Tonic": ["Tonic", "Old-Fashioned Glass"],
+      "Margarita": ["Curacao", "Lime", "Agave", "Collins Glass"],
+      "Paloma": ["Grapefruit", "Lime", "Agave", "Soda", "Collins Glass"],
+      "Rob Roy": ["Whiskey", "Sweet Vermouth", "Angostura", "Cocktail Glass"],
+      "Sidecar": ["Brandy", "Curacao", "Lemon", "Cocktail Glass"],
+      "Horse's Neck": ["Brandy", "Grenadine", "Angostura", "Old-Fashioned Glass"],
+      "Seelbach": ["Whiskey", "Curacao", "Champagne", "Angostura", "Peychauds", "Champagne Flute"],
+      "Pimm's Cup": ["Gin", "Ginger", "Collins Glass"],
+      "Venetian Spritz": ["Amaro", "Champagne", "Soda", "Champagne Flute"],
+      "Pisco Sour": ["Brandy", "Lemon", "Simple Syrup", "Egg", "Angostura", "Old-Fashioned Glass"],
+      "French 75": ["Gin", "Lemon", "Simple Syrup", "Champagne", "Champagne Flute"],
+      "French 95": ["Whiskey", "Lemon", "Simple Syrup", "Champagne", "Champagne Flute"]
+    };
+
     var poison;
     var type;
     var ciType;
@@ -265,8 +325,6 @@
       $('.p').fadeOut('slow', function() {
         $('.booRef').fadeIn('slow');
         $('.refRef').fadeIn('slow');
-        // $('.booRef').addClass('b').html("<img class='square' src='./boozeSquare.png'><h2 id='type'>BOOZY</h2>");
-        // $('.refRef').addClass('b').html("<img class='square' src='./boozeSquare.png'><h2 id='type'>REFRESHING</h2>");
       });
     });
     // console.log(lookup["VODKA"]["BOOZY"]["Simple"][0]);
@@ -282,42 +340,26 @@
           $('.cl').append("<div class='col-md-4 col-md-offset-4 col-xs-10 col-xs-offset-1'><div class='classif'><p class='classifTitle'>" + key + "</p></div></div>");
         });
         $('.classif').fadeIn('slow');
-        // for (var i = 0; i < lookup[poison][type].length; i++) {
-        //   console.log(lookup[poison][type][i]);
-        //   $('.cl').append("<div class='col-md-4 col-md-offset-4 col-xs-10'><div class='classif'><p class='classifTitle'>" + lookup[poison][type][i] + "</p></div></div>");
-        // }
       });
     });
 
     $('body').on('click', 'div.classif', function() {
       var classifVar = $.trim($(this).text());
       for (var i = 0; i < ciType[classifVar].length; i++) {
+        console.log(ciType[classifVar]);
         var value = ciType[classifVar][i];
         console.log(value);
-        $('.drinks').append("<div class='col-md-4 col-md-offset-4 col-xs-10 col-xs-offset-1'><div class='drink'><h2 id='drink_name'>" + value + "</h2><ul id='ingredients'><li>Rum</li><li>Lime</li><li>Simple Syrup</li></ul></div></div>");
+        $('.drinks').append("<div class='col-md-4 col-md-offset-4 col-xs-10 col-xs-offset-1'><div class='drink'><h2 id='drink_name'>" + value + "</h2><ul id='ingredients' class='" + i + "'>");
+        for (var j = 0; j < drinks[value].length; j++) {
+          $('.' + i).append("<li>" + drinks[value][j] + "</li>");
+        }
+        $('.' + i).append("</ul></div></div>");
       }
       $('.classif').fadeOut('slow', function() {
         $('.drinks').fadeIn('slow');
       });
-
-        // $.each(ciType[classifVar], function(key, value) {
-        //   // console.log(value);
-        //   $('.drinks').append("<div class='col-md-4 col-md-offset-4 col-xs-10 col-xs-offset-1'><div class='drink'><h2 id='drink_name'>" + value + "</h2><ul id='ingredients'><li>Rum</li><li>Lime</li><li>Simple Syrup</li></ul></div></div>")
-        // });
-
     });
   });
-  // function button() {
-  //   var x = document.getElementById('pick-poison');
-  //   var poison = x.getElementById('poison');
-  //   if (x.style.display === 'none') {
-  //       x.style.display = 'block';
-  //       console.log(poison.innerHTML());
-  //   } else {
-  //       x.style.display = 'none';
-  //   }
-  // }
 </script>
 </body>
-
 </html>
